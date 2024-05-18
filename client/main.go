@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"time"
 
@@ -33,5 +34,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not list movies: %v", err)
 	}
-	log.Printf("Movies: %s", r.GetMovies())
+
+	movies := r.GetMovies()
+	for _, movie := range movies {
+		fmt.Println(movie.Name)
+	}
 }

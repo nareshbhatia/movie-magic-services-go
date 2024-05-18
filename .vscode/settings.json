@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["proto", "protocolbuffers"]
+  "cSpell.words": [
+    "mockdata",
+    "proto",
+    "protobuf",
+    "protocolbuffers",
+    "protojson"
+  ]
 }

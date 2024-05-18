@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package seed.v1;
+
+import "models/movie/v1/movie.proto";
+
+message Wrapper {
+  repeated models.movie.v1.Movie movies = 1;
+}

@@ -8,11 +8,13 @@ import (
 	"net"
 
 	pb "github.com/code-shaper/movie-magic/gen/go/movie/v1"
+	mockdata "github.com/code-shaper/movie-magic/internal/mockdata"
 	"google.golang.org/grpc"
 )
 
 var (
-	port = flag.Int("port", 30000, "The server port")
+	port   = flag.Int("port", 30000, "The server port")
+	loader = mockdata.NewLoader()
 )
 
 type server struct {
@@ -21,11 +23,20 @@ type server struct {
 
 func (s *server) ListMovies(ctx context.Context, in *pb.ListMoviesRequest) (*pb.ListMoviesResponse, error) {
 	log.Printf("Received: %v", in.GetFilters())
-	return &pb.ListMoviesResponse{}, nil
+	pageInfo := pb.PaginationInfo{
+		TotalPages:      1,
+		TotalItems:      10,
+		Page:            1,
+		PerPage:         10,
+		HasNextPage:     false,
+		HasPreviousPage: false,
+	}
+	return &pb.ListMoviesResponse{Movies: loader.GetMovies(), PageInfo: &pageInfo}, nil
 }
 
 func main() {
 	flag.Parse()
+	loader.Load()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
