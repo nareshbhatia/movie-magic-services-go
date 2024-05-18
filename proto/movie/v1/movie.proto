@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package movie.v1;
+
+import "models/movie/v1/movie.proto";
+
+// ----- MovieService -----
+service MovieService {
+  rpc ListMovies(ListMoviesRequest) returns (ListMoviesResponse) {}
+}
+
+// ----- ListMoviesRequest -----
+
+message FilterParams {
+  repeated models.movie.v1.Certificate certs = 1;
+}
+
+enum SortParam {
+  SORT_PARAM_UNSPECIFIED = 0;
+  SORT_PARAM_RANK_ASC = 1;
+}
+
+message PageSpec {
+  int32 page = 1;
+  int32 per_page = 2;
+}
+
+message ListMoviesRequest {
+  FilterParams filters = 1;
+  SortParam sort = 2;
+  PageSpec page_spec = 3;
+}
+
+// ----- ListMoviesResponse -----
+
+message PaginationInfo {
+  // total number of pages
+  int32 total_pages = 1;
+
+  // total number of items
+  int32 total_items = 2;
+
+  // current page number
+  int32 page = 3;
+
+  // number of items per page
+  int32 per_page = 4;
+
+  // when paginating forwards, are there more items?
+  bool has_next_page = 5;
+
+  // when paginating backwards, are there more items?
+  bool has_previous_page = 6;
+}
+
+message ListMoviesResponse {
+  repeated models.movie.v1.Movie movies = 1;
+  PaginationInfo page_info = 2;
+}

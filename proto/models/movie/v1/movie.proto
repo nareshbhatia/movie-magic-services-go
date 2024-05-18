@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package models.movie.v1;
+
+enum Certificate {
+  CERTIFICATE_UNSPECIFIED = 0;
+  CERTIFICATE_G = 1;
+  CERTIFICATE_NR = 2;
+  CERTIFICATE_PG_13 = 3;
+  CERTIFICATE_PG = 4;
+  CERTIFICATE_R = 5;
+}
+
+message Image {
+  string url = 1;
+  int32 width = 2;
+  int32 height = 3;
+}
+
+message RatingsSummary {
+  float aggregate_rating = 1;
+  int32 vote_count = 2;
+}
+
+message Movie {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  repeated string cast = 4;
+  Certificate certificate = 5;
+  repeated string genres = 6;
+  Image image = 7;
+  int32 rank = 8;
+  RatingsSummary ratings_summary = 9;
+  int32 release_year = 10;
+  int32 runtime = 11;
+  string tagline = 12;
+  bool is_featured = 13;
+}
