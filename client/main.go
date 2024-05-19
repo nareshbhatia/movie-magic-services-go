@@ -7,7 +7,7 @@ import (
 	"log"
 	"time"
 
-	pb "github.com/nareshbhatia/movie-magicservices-go/gen/go/movie/v1"
+	pb "github.com/nareshbhatia/movie-magic-services-go/gen/go/movie/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

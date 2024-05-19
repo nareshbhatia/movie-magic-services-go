@@ -1,4 +1,4 @@
-module github.com/nareshbhatia/movie-magicservices-go
+module github.com/nareshbhatia/movie-magic-services-go
 
 go 1.22.2
 
