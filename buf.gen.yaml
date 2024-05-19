@@ -3,7 +3,7 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/code-shaper/movie-magic/gen/go
+      value: github.com/nareshbhatia/movie-magicservices-go/gen/go
 plugins:
   - remote: buf.build/protocolbuffers/go
     out: gen/go

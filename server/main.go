@@ -7,8 +7,8 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/code-shaper/movie-magic/gen/go/movie/v1"
-	mockdata "github.com/code-shaper/movie-magic/internal/mockdata"
+	pb "github.com/nareshbhatia/movie-magicservices-go/gen/go/movie/v1"
+	mockdata "github.com/nareshbhatia/movie-magicservices-go/internal/mockdata"
 	"google.golang.org/grpc"
 )
 

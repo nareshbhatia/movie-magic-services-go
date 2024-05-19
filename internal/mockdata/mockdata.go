@@ -4,8 +4,8 @@ import (
 	"embed"
 	"io"
 
-	movie "github.com/code-shaper/movie-magic/gen/go/models/movie/v1"
-	seed "github.com/code-shaper/movie-magic/gen/go/seed/v1"
+	movie "github.com/nareshbhatia/movie-magicservices-go/gen/go/models/movie/v1"
+	seed "github.com/nareshbhatia/movie-magicservices-go/gen/go/seed/v1"
 	"google.golang.org/protobuf/encoding/protojson"
 )
 

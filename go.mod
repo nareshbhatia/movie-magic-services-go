@@ -1,4 +1,4 @@
-module github.com/code-shaper/movie-magic
+module github.com/nareshbhatia/movie-magicservices-go
 
 go 1.22.2
 
