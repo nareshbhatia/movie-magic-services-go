@@ -9,3 +9,10 @@
 The client should now print a list of movies.
 
 Note: Server runs on port 30000.
+
+## Running proto-gen
+
+```shell
+make proto-lint
+make proto-gen
+```

@@ -23,7 +23,7 @@ message Image {
 }
 
 message RatingsSummary {
-  float aggregate_rating = 1;
+  double aggregate_rating = 1;
   int32 vote_count = 2;
 }
 
