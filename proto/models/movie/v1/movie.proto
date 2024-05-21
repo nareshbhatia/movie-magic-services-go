@@ -40,5 +40,4 @@ message Movie {
   int32 release_year = 10;
   int32 runtime = 11;
   string tagline = 12;
-  bool is_featured = 13;
 }
