@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package models.person.v1;
+
+import "models/common/v1/common.proto";
+
+message Person {
+  string id = 1;
+  string name = 2;
+  models.common.v1.Image image = 3;
+}

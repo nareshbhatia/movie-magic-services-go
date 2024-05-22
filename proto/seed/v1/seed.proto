@@ -3,7 +3,9 @@ syntax = "proto3";
 package seed.v1;
 
 import "models/movie/v1/movie.proto";
+import "models/person/v1/person.proto";
 
 message Wrapper {
   repeated models.movie.v1.Movie movies = 1;
+  repeated models.person.v1.Person people = 2;
 }

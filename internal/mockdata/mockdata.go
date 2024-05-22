@@ -5,6 +5,7 @@ import (
 	"io"
 
 	movie "github.com/nareshbhatia/movie-magic-services-go/gen/go/models/movie/v1"
+	person "github.com/nareshbhatia/movie-magic-services-go/gen/go/models/person/v1"
 	seed "github.com/nareshbhatia/movie-magic-services-go/gen/go/seed/v1"
 	"google.golang.org/protobuf/encoding/protojson"
 )
@@ -32,11 +33,21 @@ func (l *Loader) Load() error {
 		return err
 	}
 
+	if w, err := loadSeedData("seed/people.json"); err == nil {
+		l.wrapper.People = w.GetPeople()
+	} else {
+		return err
+	}
+
 	return nil
 }
 
 func (l *Loader) GetMovies() []*movie.Movie {
 	return l.wrapper.GetMovies()
+}
+
+func (l *Loader) GetPeople() []*person.Person {
+	return l.wrapper.GetPeople()
 }
 
 // Close is for demo purposes only and does nothing.

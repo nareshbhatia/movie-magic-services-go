@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package person.v1;
+
+import "models/person/v1/person.proto";
+
+// ----- PersonService -----
+service PersonService {
+  rpc GetByID(GetByIDRequest) returns (GetByIDResponse) {}
+}
+
+message GetByIDRequest {
+  string id = 1;
+}
+
+message GetByIDResponse {
+  models.person.v1.Person person = 1;
+}
