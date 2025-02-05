@@ -21,6 +21,7 @@ type server struct {
 	pb.UnimplementedMovieServiceServer
 }
 
+// Implement MovieService.ListMovies()
 func (s *server) ListMovies(ctx context.Context, in *pb.ListMoviesRequest) (*pb.ListMoviesResponse, error) {
 	log.Printf("Received: %v", in.GetFilters())
 	pageInfo := pb.PaginationInfo{

@@ -1,5 +1,8 @@
 # Movie Magic Services in Go
 
+The Movie Magic Server exposes MovieService as a gRPC endpoint at localhost:30000.
+It uses the [Buf CLI](https://buf.build/docs) to generate Go code for this service.
+
 ## Getting started
 
 1. Make sure you have Go and Buf installed.
