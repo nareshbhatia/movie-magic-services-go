@@ -13,6 +13,14 @@ The client should now print a list of movies.
 
 Note: Server runs on port 30000.
 
+You can also verify that the server is working correctly using this command:
+
+```shell
+buf curl --schema . --protocol grpc --http2-prior-knowledge http://localhost:30000/movie.v1.MovieService/ListMovies
+```
+
+It should print a list of movies in JSON format.
+
 ## Running proto-gen
 
 ```shell
