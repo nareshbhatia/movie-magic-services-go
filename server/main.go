@@ -23,7 +23,11 @@ type server struct {
 
 // Implement MovieService.ListMovies()
 func (s *server) ListMovies(ctx context.Context, in *pb.ListMoviesRequest) (*pb.ListMoviesResponse, error) {
-	log.Printf("Received: %v", in.GetFilters())
+	method, ok := grpc.Method(ctx)
+    if !ok {
+        method = "unknown"
+    }
+	log.Printf("method: %s, filters: %v", method, in.GetFilters())
 	pageInfo := pb.PaginationInfo{
 		TotalPages:      1,
 		TotalItems:      10,
