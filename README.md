@@ -13,13 +13,40 @@ The client should now print a list of movies.
 
 Note: Server runs on port 30000.
 
-You can also verify that the server is working correctly using this command:
+## Verify service using gRPC protocol
 
 ```shell
 buf curl --schema . --protocol grpc --http2-prior-knowledge http://localhost:30000/movie.v1.MovieService/ListMovies
 ```
 
-It should print a list of movies in JSON format.
+This prints a list of movies in JSON format.
+
+## Verify service using gRPC-web protocol
+
+1. Install the
+   [Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/start/install). We will
+   use it to make the Movie Magic gRPC service available as a gRPC-web service.
+2. Start Envoy: `envoy -c envoy.yaml`. The `envoy.yaml` file configures Envoy to make the
+   gRPC-web service available at http://localhost:8080/api
+3. Run `buf curl` to verify the service:
+
+```shell
+buf curl --schema . --protocol grpcweb --http2-prior-knowledge http://localhost:8080/api/movie.v1.MovieService/ListMovies
+```
+
+This prints a list of movies in JSON format.
+
+**Note: Currently this does not work **
+
+It returns this error:
+
+```json
+{
+   "code": "unimplemented",
+   "message": "unknown service /movie.v1.MovieService"
+}
+```
+
 
 ## Running proto-gen
 
